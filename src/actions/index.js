@@ -21,13 +21,17 @@ export function fetchPlayers(email) {
     //   console.log(grabFrom(response.data, email))
         
     //   console.log(response.data[email])
-        return response.data[email]
+        if(response.data[email] === undefined) {
+            alert("Sorry Invalid Email .. E-Mail Format: scurry@warriors.com")
+        } else  {
+            return response.data[email]
+        }
     })
     .catch(function (error) {
       console.log(error);
     });
 
-    console.log('reqeust', request)
+    // console.log('reqeust', request)
 
     return {
         type: FETCH_PLAYERS,
