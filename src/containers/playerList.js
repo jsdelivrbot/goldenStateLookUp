@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 class PlayerList extends Component {
 
     renderPlayers(playerdata) {
+        if(playerdata === undefined) {
+            return;
+        }
+
         const firstName = playerdata.firstName;
         const lastName = playerdata.lastName;
         const photo = playerdata.photo
