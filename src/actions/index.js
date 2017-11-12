@@ -1,40 +1,25 @@
 import axios from 'axios';
 
-const ROOT_URL = "https://demo5689530.mockable.io/public/players";
+const ROOT_URL = 'https://demo5689530.mockable.io/public/players';
 
-export const FETCH_PLAYERS = 'FETCH_PLAYERS'
+export const FETCH_PLAYERS = 'FETCH_PLAYERS';
 
+//HTTP request to server
 export function fetchPlayers(email) {
-
-    // function grabFrom(obj, email) {
-    //     for(let key in obj) {
-    //       if(key === email) {
-    //         return obj[key]
-    //       }
-    //     }
-    // }
-
-
-
-    let request = axios.get(ROOT_URL)
-    .then(function (response) {
-    //   console.log(grabFrom(response.data, email))
-        
-    //   console.log(response.data[email])
-        if(response.data[email] === undefined) {
-            alert("Sorry Invalid Email .. E-Mail Format: scurry@warriors.com")
-        } else  {
-            return response.data[email]
-        }
+  const request = axios.get(ROOT_URL)
+    .then((response) => {
+      if (response.data[email] === undefined) {
+        alert('Sorry Invalid Email .. E-Mail Format: scurry@warriors.com');
+      } else {
+        return response.data[email];
+      }
     })
-    .catch(function (error) {
+    .catch((error) => {
       console.log(error);
     });
 
-    // console.log('reqeust', request)
-
-    return {
-        type: FETCH_PLAYERS,
-        payload: request
-    }
+  return {
+    type: FETCH_PLAYERS,
+    payload: request,
+  };
 }

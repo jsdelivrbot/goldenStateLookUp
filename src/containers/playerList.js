@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class PlayerList extends Component {
-
+    
+    //Render Single Player
     renderPlayers(playerdata) {
         if(playerdata === undefined) {
             return;
@@ -21,8 +22,7 @@ class PlayerList extends Component {
         )
     }
 
-
-
+    //Render Table with Columns
     render() {
         return (
             <table className="table table-hover">
@@ -42,7 +42,6 @@ class PlayerList extends Component {
 }
 
 function mapStateToProps(state) {
-
     return { players: state.players };
 }
 
